@@ -1,7 +1,3 @@
-#include <iostream>
-#include <cmath>
-using namespace std;
-
 /*
 Программа для произведения расчётов налога на имущество за земельный участок.
 
@@ -14,6 +10,10 @@ square_without_roof - площадь участка без крыши
 square_garden - площадь участка с садом
 taxe - сумма налога
 */
+
+#include <iostream>
+#include <cmath>
+using namespace std;
 
 int main() 
 {
@@ -62,6 +62,5 @@ int main()
 
     cout<<"Налог на имущество за земельный участок составит - "<< taxe <<" тыс. рублей."<<endl;
     
-
     return 0;
 }
