@@ -20,8 +20,9 @@ using namespace std;
 
 int main()
 {
-    float k, w, pi = 3.14, A;
+    float k, w, A;
     double T, w0, x;
+    const double pi = 2 * asin(1.0);
 
     // запрос переменных
     cout<<"k = ";
