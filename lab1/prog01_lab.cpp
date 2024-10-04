@@ -343,12 +343,24 @@ int main()
 	{
 		
 		//сформироыать границы диапазона
-
+		int a, b, sm;
 		//проверить корректность значений
-		
+		do
+		{
+			std::cout<< "Введите начало отсчёта (a): ";
+			std::cin>>a;
+
+			std::cout<< "Введите конец отсчёта (b): ";
+			std::cin>>b;
+		} while (b < a);
 		// вычислить сумму
+		for (int i = a; i <= b; i ++) {sm += i;};
+
+		std::cout<< "sm = " << sm << std::endl;
+		
 		// проверить в отладчике значение
 		stop
+		
 	}
 
 
@@ -361,15 +373,43 @@ int main()
 	//вариант.
 	
 	{
+		int x, flag;
+		float x_f;
 
+		do
+		{
+			flag = 0;
+
+			std::cout<< "Введите число: ";
+			std::cin>>x;
+
+			for (int i = 10; i <= x; i += 2)
+			{
+				if (x - i == 0) {flag = 1; break;}
+			};
+
+		} while (x >= 10 && flag == 0);
+		
+		std::cout<< "\nФрагмент программы окончен." << std::endl;
 	}
 
 	//Задание 9.3 Напишите фрагмент кода, который реализует с помощью while
 	//следующую логику: исходно int x = 0; 
 	//на каждой итерации x=x+1, sum=sum+1/x
 	//найти значение x, при котором sum>1.7
+	#define FLT_EPSILON 1.192092896e-07F
 	{
+		int x = 0;
+		float sum = 0;
+		
+		while (sum - 1.7f < FLT_EPSILON)
+		{
+			x++;
+			sum += (1.f/x);
+		};
 
+		std::cout<< "sum = " << sum << std::endl;
+		std::cout<< "x = " << x << std::endl;
 	}
 	return 0;//код завершения приложения
 }	// Конец функции main()
