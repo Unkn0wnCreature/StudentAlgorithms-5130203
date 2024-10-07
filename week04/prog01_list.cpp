@@ -21,8 +21,7 @@ using namespace std;
 int main()
 {   
     // определение переменных
-    int A, B, kdivA = 0, kdivB = 0, r_oddA = 1, r_evenB = 0, sum_divA = 0, sum_divB = 0, mx_div = 0;
-    // long long int r_evenB = 1; до уточнения ТЗ по строчке 48
+    int A, B, kdivA = 0, kdivB = 0, r_oddA = 1, sum_evenB = 0, sum_divA = 0, sum_divB = 0, mx_div = 0;
 
     cout<< "Введите число A от 10 до 1000 включительно: ";
     cin>>A;
@@ -46,7 +45,7 @@ int main()
         {
             sum_divB += j; // сумма делителей B
             kdivB++; // количество делителей A
-            if (j % 2 == 0) {r_evenB += j;}; // необходимо уточнение ТЗ
+            if (j % 2 == 0) {sum_evenB += j;}; // необходимо уточнение ТЗ
         };
     };
 
@@ -74,7 +73,7 @@ int main()
     // вывод результатов
     cout<< "1) Сумма делителей A и B: " << sum_divA + sum_divB << endl; // 1
     cout<< "2) Произведение количества делителей A и B: " << kdivA * kdivB << endl; // 2
-    cout<< "3) Сумма произведения нечетных делителей числа А и произведения четных делителей числа В: " << r_oddA + r_evenB << endl; // 3
+    cout<< "3) Сумма произведения нечетных делителей числа А и суммы четных делителей числа В: " << r_oddA + sum_evenB << endl; // 3
     cout<< "4) Наибольший общий делитель A и B: " << mx_div << endl; // 4
 
     return 0;
