@@ -9,7 +9,7 @@ B - число B
 kdivA - количество делителей числа A
 kdivB - количество делителей числа B
 r_oddA - произведение нечётных делителей числа A
-r_evenB - сумма чётных делителей числа B
+sum_evenB - сумма чётных делителей числа B
 sum_divA - сумма делителей числа A
 sum_divB - сумма делителей числа B
 mx_div - наибольший общий делитель чисел A и B
@@ -21,7 +21,7 @@ using namespace std;
 int main()
 {   
     // определение переменных
-    int A, B, kdivA = 0, kdivB = 0, r_oddA = 1, sum_evenB = 0, sum_divA = 0, sum_divB = 0, mx_div = 0;
+    int A, B, kdivA = 0, kdivB = 0, r_oddA = 1, sum_evenB = 0, sum_divA = 0, sum_divB = 0, mx_div = 1;
 
     cout<< "Введите число A от 10 до 1000 включительно: ";
     cin>>A;
@@ -57,8 +57,6 @@ int main()
         {
             if ((B % i == 0) && (A % i == 0)) {mx_div = i; break;};
         };
-
-        if (mx_div == 1) {cout<< "Числа простые вместе." << endl;};
     }
     else
     {
@@ -66,15 +64,14 @@ int main()
         {
             if ((B % i == 0) && (A % i == 0)) {mx_div = i; break;};
         };
-
-        if (mx_div == 1) {cout<< "Числа простые вместе." << endl;};
     };
 
     // вывод результатов
     cout<< "1) Сумма делителей A и B: " << sum_divA + sum_divB << endl; // 1
     cout<< "2) Произведение количества делителей A и B: " << kdivA * kdivB << endl; // 2
     cout<< "3) Сумма произведения нечетных делителей числа А и суммы четных делителей числа В: " << r_oddA + sum_evenB << endl; // 3
-    cout<< "4) Наибольший общий делитель A и B: " << mx_div << endl; // 4
+    if (mx_div != 1) {cout<< "4) Наибольший общий делитель A и B: " << mx_div << endl;}
+    else {cout<< "4) Числа простые вместе." << endl;};
 
     return 0;
 }
