@@ -373,22 +373,20 @@ int main()
 	//вариант.
 	
 	{
-		int x, flag;
+		int x, flag_even = 0;
 		float x_f;
 
 		do
 		{
-			flag = 0;
-
 			std::cout<< "Введите число: ";
 			std::cin>>x;
 
 			for (int i = 10; i <= x; i += 2)
 			{
-				if (x - i == 0) {flag = 1; break;}
+				if (x - i == 0) {flag_even = 1; break;}
 			};
 
-		} while (x >= 10 && flag == 0);
+		} while (x >= 10 && flag_even == 0);
 		
 		std::cout<< "\nФрагмент программы окончен." << std::endl;
 	}
