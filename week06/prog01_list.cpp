@@ -15,7 +15,7 @@ double calculation_of_regression(int n, int *x, int *y);
 double calculation_of_ind_regression(int n, int *x, int *y);
 void coef_y_and_error(int n, int *x, int *y);
 
-// головвная функция
+// головная функция
 int main()
 {
     int n, *x, *y, m = 2;
