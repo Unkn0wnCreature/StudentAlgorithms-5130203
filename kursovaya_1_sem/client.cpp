@@ -86,6 +86,7 @@ int get_num_clients()
 void print_clients_file(struct Client *list_clients)
 {
     clean_file("client.txt");
+    //print_head_client("client.txt");
     
     for (int i = 0; i < get_num_clients(); i++)
     {
