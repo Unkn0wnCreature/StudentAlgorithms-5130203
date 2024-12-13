@@ -5,7 +5,7 @@ using namespace std;
 
 #include "client.h"
 
-void write_file(char file_name[30], struct Client c)
+void print_file_client(char file_name[30], struct Client c)
 {
     FILE *file;
     char file_path[100];

@@ -89,6 +89,6 @@ void print_clients_file(struct Client *list_clients)
     
     for (int i = 0; i < get_num_clients(); i++)
     {
-        write_file("client.txt", list_clients[i]);
+        print_file_client("client.txt", list_clients[i]);
     };
 };
