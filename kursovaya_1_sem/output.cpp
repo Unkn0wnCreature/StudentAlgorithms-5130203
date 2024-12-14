@@ -17,7 +17,7 @@ void print_file_client(char file_name[30], struct Client c)
 
     if (file)
     {   
-        fprintf(file, "%d %s %d %.2f\n", c.code, c.name, c.age, c.salary);
+        fprintf(file, "%d %s %d %f\n", c.code, c.name, c.age, c.salary);
     }
     else {cout<< "Error to open file\n" << endl;};
 
@@ -36,21 +36,13 @@ void clean_file(char file_name[30])
     fclose(file);
 };
 
-void print_head_client(char file_name[30])
+void print_clients_file(struct Client *list_clients)
 {
-    FILE *file;
-    char file_path[100];
-
-    strcpy(file_path, "data/");
-    strcat(file_path, file_name);
-
-    file = fopen(file_path, "w");
-
-    if (file)
+    clean_file("client.txt");
+    //print_head_client("client.txt");
+    
+    for (int i = 0; i < get_num_clients(); i++)
     {
-        fprintf(file, "%4s %s %s %s\n", "Code", "Name", "Age", "Salary");
-    }
-    else {cout<< "Error to open file\n" << endl;};
-
-    fclose(file);
+        print_file_client("client.txt", list_clients[i]);
+    };
 };

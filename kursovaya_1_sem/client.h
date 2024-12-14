@@ -11,4 +11,3 @@ struct Client
 void menu_clients(int *opt, struct Client *list_clients);
 void insert_client(struct Client *c);
 int get_num_clients();
-void print_clients_file(struct Client *list_clients);

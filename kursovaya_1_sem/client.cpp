@@ -4,6 +4,7 @@
 #include <cstdio>
 #include "client.h"
 #include "output.h"
+#include "input.h"
 using namespace std;
 
 static int num_clients = 0;
@@ -34,7 +35,7 @@ void menu_clients(int *opt, struct Client *list_clients)
                 print_clients_file(list_clients);
                 break;
             case 2: //read
-                //code
+                read_file_client("client.txt");
                 break;
             case 3:
                 //code
@@ -81,15 +82,4 @@ void insert_client(struct Client *c)
 int get_num_clients()
 {
     return num_clients;
-};
-
-void print_clients_file(struct Client *list_clients)
-{
-    clean_file("client.txt");
-    //print_head_client("client.txt");
-    
-    for (int i = 0; i < get_num_clients(); i++)
-    {
-        print_file_client("client.txt", list_clients[i]);
-    };
 };
