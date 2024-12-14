@@ -36,10 +36,27 @@ void clean_file(char file_name[30])
     fclose(file);
 };
 
+void print_num_clients(char file_name[30], int num_cl)
+{
+    FILE *file;
+    char file_path[100];
+
+    strcpy(file_path, "data/");
+    strcat(file_path, file_name);
+
+    file = fopen(file_path, "w");
+
+    if (file) {fprintf(file, "%d\n", num_cl);}
+    else {cout<< "Error to open file\n" << endl;};
+
+    fclose(file);
+};
+
 void print_clients_file(struct Client *list_clients)
 {
     clean_file("client.txt");
-    //print_head_client("client.txt");
+
+    print_num_clients("client.txt", get_num_clients());
     
     for (int i = 0; i < get_num_clients(); i++)
     {
