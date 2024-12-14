@@ -5,7 +5,7 @@
 using namespace std;
 
 #define MAX_CLIENTS 100
-#define MAX_PRODUCTS 100
+#define MAX_BOOKS 100
 #define MAX_ORDERS 100
 
 void menu_master(int *opt);
@@ -15,8 +15,12 @@ int main()
     int opt;
     char cont;
     struct Client *list_clients;
+    struct Book *list_books;
+    struct Order *list_orders;
 
     list_clients = new struct Client[MAX_CLIENTS];
+    list_books = new struct Book[MAX_BOOKS];
+    list_orders = new struct Order[MAX_ORDERS];
 
     do
     {
@@ -27,11 +31,11 @@ int main()
             case 1:     // clients
                 menu_clients(&opt, list_clients);
                 break;
-            case 2:     // products
-                //code
+            case 2:     // books
+                menu_books(&opt, list_books);
                 break;
             case 3:     // orders
-                //code
+                menu_orders(&opt, list_clients, list_books, list_orders);
                 break;
             default:
                 cout<<"\nInvalid option"<<endl;
@@ -47,6 +51,8 @@ int main()
 
     // cleaning of memory
     delete[] list_clients;
+    delete[] list_books;
+    delete[] list_orders;
 
     return 0;
 }
