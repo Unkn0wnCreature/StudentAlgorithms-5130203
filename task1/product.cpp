@@ -1,10 +1,20 @@
 #include <iostream>
-#include "product.h"
 #include <cstring>
+#include "product.h"
 
 using namespace std;
 
-Product::Product(char code[13], char description[50], double cost, int amount, double longitude, double lattitude)
+Product::Product()
+{
+    this->code = -1;
+    strcpy(this->description, "");
+    this->cost = 0.0;
+    this->amount = 0;
+    this->longitude = 0.0;
+    this->lattitude = 0.0;
+}
+
+Product::Product(int code, char description[50], double cost, int amount, double longitude, double lattitude)
 {
     this->code = code;
     strcpy(this->description, description);
@@ -35,7 +45,8 @@ void Product::set(char description[50], double cost, int amount, double longitud
     this->lattitude = validate_component(lattitude, 41, 82);
 }
 
-void Product::get(char* &code, char* &description, double &cost, int &amount, double &longitude, double &lattitude)
+/*
+void Product::get(int &code, char* &description, double &cost, int &amount, double &longitude, double &lattitude)
 {
     code = this->code;
     strcpy(description, this->description);
@@ -44,6 +55,7 @@ void Product::get(char* &code, char* &description, double &cost, int &amount, do
     longitude = this->longitude;
     lattitude = this->lattitude;
 }
+*/
 
 void Product::print()
 {

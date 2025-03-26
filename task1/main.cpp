@@ -1,10 +1,11 @@
 #include <iostream>
-#include "product.h"
+#include "product.cpp"
 
 int main()
 {
     Product p;
-    p = Product("", "", 1, 2, 3, 4);
+    p = Product();
+    p.print();
 
     return 0;
 }
