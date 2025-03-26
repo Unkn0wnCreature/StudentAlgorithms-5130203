@@ -37,5 +37,7 @@ int main()
         }
     } while (opt != 5);
 
+    cout<< "Programm is over!" <<endl;
+
     return 0;
 }
