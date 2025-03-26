@@ -22,10 +22,10 @@ class Warehouse
         int get_size();
         Product get_product(int pos);
         void menu(int &opt);
-        void insert_product();
+        void insert_product(char description[50], double cost, int amount, double longitude, double lattitude);
         void print_list();
-        void search_product();
-        void delete_product();
+        int search_product(char search_criteria[50]);
+        void delete_product(char search_criteria[50]);
 };
 
 void input_max_products(int &n);

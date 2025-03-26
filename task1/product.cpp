@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 #include "product.h"
 
 using namespace std;
@@ -59,12 +60,12 @@ void Product::get(int &code, char* &description, double &cost, int &amount, doub
 
 void Product::print()
 {
-    cout<< "Code: " <<reg_code << code << "\n"
-    << "Description: " << description << "\n"
-    << "Cost: " << cost << "\n"
-    << "Amount: " << amount << "\n"
-    << "Longitude: " << longitude << "\n"
-    << "Lattitude: " << lattitude <<endl;
+    cout<< setw(15) <<this->reg_code << this->code <<
+    setw(10) << this->description <<
+    setw(10) << this->cost <<
+    setw(10) << this->amount <<
+    setw(10) << this->longitude <<
+    setw(10) << this->lattitude <<endl;
 }
 
 double Product::validate_component(double comp, double min, double max)
