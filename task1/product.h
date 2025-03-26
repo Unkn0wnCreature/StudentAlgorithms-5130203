@@ -3,6 +3,7 @@
 class Product
 {
     public:
+        int reg_code = 460;
         int code;
         char description[50];
         double cost;
@@ -12,7 +13,7 @@ class Product
     
     public:
         Product();
-        Product(int code, char description[50], double cost, int amount, double longitude, double lattitude);
+        Product(char description[50], double cost, int amount, double longitude, double lattitude);
         Product(const Product &p);
         ~Product();
         //void get(int &code, char &description, double &cost, int &amount, double &longitude, double &lattitude);

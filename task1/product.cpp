@@ -14,9 +14,9 @@ Product::Product()
     this->lattitude = 0.0;
 }
 
-Product::Product(int code, char description[50], double cost, int amount, double longitude, double lattitude)
+Product::Product(char description[50], double cost, int amount, double longitude, double lattitude)
 {
-    this->code = code;
+    this->code = (1 + rand() % 2) * 1000000000 + (1 + rand() % 999999);
     strcpy(this->description, description);
     this->cost = cost;
     this->amount = amount;
@@ -59,7 +59,7 @@ void Product::get(int &code, char* &description, double &cost, int &amount, doub
 
 void Product::print()
 {
-    cout<< "Code: " << code << "\n"
+    cout<< "Code: " <<reg_code << code << "\n"
     << "Description: " << description << "\n"
     << "Cost: " << cost << "\n"
     << "Amount: " << amount << "\n"
