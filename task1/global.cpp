@@ -37,17 +37,23 @@ void insert_new_product(Warehouse list[3]){
 
     if (calculate_dist(list[0], longitude, lattitude) < calculate_dist(list[1], longitude, lattitude) 
     && calculate_dist(list[0], longitude, lattitude) < calculate_dist(list[2], longitude, lattitude)){
-        list[0].insert_product(description, cost, amount, longitude, lattitude);
+        if (list[0].amount > 0){
+            list[0].insert_product(description, cost, amount, longitude, lattitude);
+        } else {cout<< "Unable to insert on that warehouse!" <<endl;} 
     }
 
     if (calculate_dist(list[1], longitude, lattitude) < calculate_dist(list[0], longitude, lattitude) 
     && calculate_dist(list[1], longitude, lattitude) < calculate_dist(list[2], longitude, lattitude)){
-        list[1].insert_product(description, cost, amount, longitude, lattitude);
+        if (list[1].amount > 0){
+            list[1].insert_product(description, cost, amount, longitude, lattitude);
+        } else {cout<< "Unable to insert on that warehouse!" <<endl;}
     }
 
     if (calculate_dist(list[2], longitude, lattitude) < calculate_dist(list[0], longitude, lattitude) 
     && calculate_dist(list[2], longitude, lattitude) < calculate_dist(list[1], longitude, lattitude)){
-        list[2].insert_product(description, cost, amount, longitude, lattitude);
+        if (list[2].amount > 0){
+            list[2].insert_product(description, cost, amount, longitude, lattitude);
+        } else {cout<< "Unable to insert on that warehouse!" <<endl;}
     }
 }
 
@@ -56,10 +62,10 @@ void search_product(Warehouse list[3]){
     cout<< "Search criteria: "; cin>> search_criteria;
 
     for (int i = 0; i < 3; i++){
+        cout<< "---------------" << list[i].code_letter << list[i].index << "---------------" <<endl;
         if (list[i].search_product(search_criteria) != -1){
-            cout<< "---------------" << list[i].code_letter << list[i].index << "---------------" <<endl;
             list[i].get_product(list[i].search_product(search_criteria)).print();
-        }
+        } else {cout<< "Product not found!" << endl;}
     }
 }
 

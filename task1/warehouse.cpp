@@ -69,7 +69,7 @@ int Warehouse::get_size(){
 void Warehouse::insert_product(char description[50], double cost, int amount, double longitude, double lattitude){
     this->list[this->size].code = (1 + rand() % 2) * 1000000000 + (1 + rand() % 999999);
 
-    this->list[this->size].description = description;
+    strcpy(this->list[this->size].description, description);
 
     this->list[this->size].cost = cost;
 
@@ -95,7 +95,7 @@ Product Warehouse::get_product(int pos){
 
 void Warehouse::print_list(){
     cout<< setw(15) << "Code" <<
-    setw(10) << "Description" <<
+    setw(15) << "Description" <<
     setw(10) << "Cost" <<
     setw(10) << "Amount" <<
     setw(10) << "Longitude" <<
@@ -107,21 +107,28 @@ void Warehouse::print_list(){
 }
 
 int Warehouse::search_product(char search_criteria[50]){
+    int pos;
     for (int i = 0; i < this->get_size(); i++){
-        if (strcmp(this->list[i].description, search_criteria) == 0) {return i;}
-        else {return -1;}
+        if (strcmp(this->list[i].description, search_criteria) == 0) {pos = i; return pos;}
     }
+
+    return -1;
 }
 
 void Warehouse::delete_product(char search_criteria[50]){
     int pos = this->search_product(search_criteria);
 
     if (pos != -1){
-        for (int i = 0; i < this->get_size(); i++){
+        if (pos == this->size - 1){
+
+            this->list[pos] = this->list[pos - 1];
+        }
+
+        for (int i = pos; i < this->get_size()-1; i++){
             this->list[i] = this->list[i+1];
             this->size--;
             this->set_size(this->size);
             cout<< "Product deleted" <<endl;
-        }
+        }   
     } else {cout<< "Product not found!" <<endl;}
 }

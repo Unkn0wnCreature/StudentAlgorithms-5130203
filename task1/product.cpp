@@ -46,7 +46,7 @@ void Product::set(char description[50], double cost, int amount, double longitud
     this->lattitude = validate_component(lattitude, 41, 82);
 }
 
-/*
+
 void Product::get(int &code, char* &description, double &cost, int &amount, double &longitude, double &lattitude)
 {
     code = this->code;
@@ -56,12 +56,12 @@ void Product::get(int &code, char* &description, double &cost, int &amount, doub
     longitude = this->longitude;
     lattitude = this->lattitude;
 }
-*/
+
 
 void Product::print()
 {
-    cout<< setw(15) <<this->reg_code << this->code <<
-    setw(10) << this->description <<
+    cout<< setw(3) << "460" << setw(12) << this->code <<
+    setw(15) << this->description <<
     setw(10) << this->cost <<
     setw(10) << this->amount <<
     setw(10) << this->longitude <<
